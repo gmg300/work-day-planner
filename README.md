@@ -11,7 +11,7 @@ GMG300 https://github.com/gmg300
 
 *CSS framework*
 
-Clock - https://cssanimation.rocks/clocks/
+Clock - https://cssanimation.rocks/clocks/ | https://codepen.io/JWardee/pen/XmMvGK
 
 *JS framework*
 

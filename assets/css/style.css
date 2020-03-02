@@ -33,89 +33,60 @@ textarea {
 }
 
 /* Clock */
-.clock {
-  border-radius: 25%;
-  background: #fff url(/images/posts/clocks/ios_clock.svg) no-repeat center;
-  background-size: 88%;
-  height: 20em;
-  padding-bottom: 31%;
-  position: relative;
-  width: 20em;
-}
+.circle {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    border: 6px solid rgba(129, 230, 217, 1);
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 50%;
 
-/* .clock.simple:after {
-  background: #000;
-  border-radius: 50%;
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 5%;
-  height: 5%;
-  z-index: 10;
-} */
-
-.minutes-container,
-.hours-container,
-.seconds-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.hours {
-  background: #000;
-  height: 20%;
-  left: 48.75%;
-  position: absolute;
-  top: 30%;
-  transform-origin: 50% 100%;
-  width: 2.5%;
-}
-
-.minutes {
-  background: #000;
-  height: 40%;
-  left: 49%;
-  position: absolute;
-  top: 10%;
-  transform-origin: 50% 100%;
-  width: 2%;
-}
-
-.seconds {
-  background: #000;
-  height: 45%;
-  left: 49.5%;
-  position: absolute;
-  top: 14%;
-  transform-origin: 50% 80%;
-  width: 1%;
-  z-index: 8;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotateZ(360deg);
+    
+      /* &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        margin: -6px 0 0 -6px;
+        background: black;
+        border-radius: 6px;
+        content: "";
+        display: block; */
+     
   }
-}
+  
+  .face {
+    width: 100%;
+    height: 100%;
+  }
 
-.hours-container {
-  animation: rotate 43200s infinite linear;
-}
-.minutes-container {
-  animation: rotate 3600s infinite linear;
-}
-.seconds-container {
-  animation: rotate 60s infinite linear;
-}
+  .hour, .minute, .second {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(129, 230, 217, 1);
+    border-radius: 4px 0 0 4px;
+  }
 
-.minutes-container {
-  animation: rotate 3600s infinite steps(60);
-}
-.seconds-container {
-  animation: rotate 60s infinite steps(60);
-}
+  .minute, .second {
+    transform-origin: 50% 100%;
+  }
+
+  .hour {
+    margin: -4px 0 -4px -25%;
+    padding: 4px 0 4px 25%;
+    transform-origin: 100% 50%;
+  }
+
+  .minute {
+    margin: -40% -3px 0;
+    padding: 40% 3px 0;
+  }
+
+  .second {
+    margin: -40% -1px 0 0;
+    padding: 40% 1px 0;
+  }
