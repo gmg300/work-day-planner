@@ -12,6 +12,11 @@
   color: white;
 }
 
+.btn-blue:hover {
+  background-color: rgba(49, 130, 206, .75);
+  color: rgb(129, 230, 217);
+}
+
 .bg-light-gray {
   background-color: #f7fafc;
 }
@@ -25,11 +30,16 @@
   border-right-style: solid;
 }
 
+table, tr, td, th {
+  border-top: none!important;
+}
+
 textarea {
   outline: none;
   resize: none;
   border: none;
-  background-color: #f7fafc;
+  background-color: white;
+  width: 100%
 }
 
 /* Clock */
@@ -38,7 +48,7 @@ textarea {
     height: 180px;
     position: relative;
     border: 6px solid rgba(129, 230, 217, 1);
-    background-color: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 50%;
 
     
@@ -90,3 +100,6 @@ textarea {
     margin: -40% -1px 0 0;
     padding: 40% 1px 0;
   }
+
+  /* Media Queries */
+ 
