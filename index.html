@@ -14,88 +14,99 @@
 </head>
 
 <body>
-  <header class="jumbotron-fluid bg-gradient">
-    <div class="row align-items-center py-5 px-4">
-      <div class="col-6">
-        <h1 class="display-5 text-light">Work Day Scheduler</h1>
-        <p class="lead text-light">A simple calendar app for scheduling your work day!</p>
-        <p id="currentDay" class="lead text-light">Monday / March 02</p>
-      </div>
-        <!-- Analog Clock -->
-      <div class="col-6">
-        <div class="circle mr-3 ml-auto">
-          <div class="face">
-            <div id="hour" class="hour"></div>
-            <div id="minute" class="minute"></div>
-            <div id="second" class="second"></div>
-          </div>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-gradient">
+      <div class="container-fluid align-header p-4">
+        <div>
+          <h1 class="display-5 text-light text-shadow">Work Day Scheduler</h1>
+          <p class="lead text-light text-shadow">A simple calendar app for scheduling your work day!</p>
+          <p id="currentDate" class="lead text-light text-shadow"></p>
         </div>
-      </div>
-    </div>
+        <!-- Analog Clock -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        
+          <ul class="navbar-nav shrink-clock ml-auto">
+            <li class="nav-item">
+              <div class="align-clock">
+              <div class="circle inline-block ml-auto">
+                <div class="face">
+                  <div id="hour" class="hour"></div>
+                  <div id="minute" class="minute"></div>
+                  <div id="second" class="second"></div>
+                </div>
+              </div>
+            </div>
+            </li>
+          </ul>
+        </div> 
+        <!-- </div> -->
+    </nav>
   </header>
+  <!-- Hourly Planner -->
   <main class="container">
     <div class="row">
       <table class="table w-100 bg-light-gray mt-2">
         <thead>
           <tr class="d-flex bg-white">
-            <th scope="col" class="col-2">Monday</th>
+            <th id="currentDay" scope="col" class="col-2">Loading...</th>
             <th scope="col" class="col-9"></th>
             <th scope="col" class="col-1"></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border ">9am</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">9am</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">10am</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">10am</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">11am</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">11am</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">12pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">12pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">1pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">1pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">2pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">2pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">3pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">3pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">4pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">4pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
-          <tr class="d-flex mb-1 shadow-sm">
-            <th scope="row" class="col-2 --border">5pm</th>
+          <tr class="d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">5pm</th>
             <td id="" class="col-9"><textarea name=""></textarea></td>
-            <td class="col-1 justify-content-center align-self-center"><button type="button" class="btn btn-blue fas fa-sync-alt"></button></td>
+            <td class="col-1 save-bg-blue save"><i class="fas fa-sync-alt"></i></td>
           </tr>
         </tbody>
       </table>
-    </main>
+  </main>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
