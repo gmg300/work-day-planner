@@ -1,40 +1,49 @@
 $(document).ready(function() {
   var schedule = [
     {
-      hour: "9am",
-      event: []
+      name: "9am",
+      event: [],
+      hour: "9"
     },
     {
-      hour: "10am",
-      event: []
+      name: "10am",
+      event: [],
+      hour: "10"
     },
     {
-      hour: "11am",
-      event: []
+      name: "11am",
+      event: [],
+      hour: "11"
     },
     {
-      hour: "12pm",
-      event: []
+      name: "12pm",
+      event: [],
+      hour: "12"
     },
     {
-      hour: "1pm",
-      event: []
+      name: "1pm",
+      event: [],
+      hour: "13"
     },
     {
-      hour: "2pm",
-      event: []
+      name: "2pm",
+      event: [],
+      hour: "14"
     },
     {
-      hour: "3pm",
-      event: []
+      name: "3pm",
+      event: [],
+      hour: "15"
     },
     {
-      hour: "4pm",
-      event: []
+      name: "4pm",
+      event: [],
+      hour: "16"
     },
     {
-      hour: "5pm",
-      event: []
+      name: "5pm",
+      event: [],
+      hour: "17"
     }
   ];
 
@@ -61,8 +70,8 @@ $(document).ready(function() {
   function renderSchedule() {
     $("tbody").empty();
     schedule.forEach((item, i) => {
-      var block = `<tr data-index="${i}" class="hour-block d-flex mb-1 shadow-sm rounded-right">
-            <th scope="row" class="col-2 --border-left">${item.hour}</th>
+      var block = `<tr data-index="${i}" data-hour="${item.hour}" class="hour-block d-flex mb-1 shadow-sm rounded-right">
+            <th scope="row" class="col-2 --border-left">${item.name}</th>
             <td class="col-10 p-0">
               <div class="input-group">
                 <textarea class="form-control event-text">${item.event}</textarea>
@@ -76,10 +85,37 @@ $(document).ready(function() {
           </tr>`;
       $("tbody").append(block);
     });
+    renderColorCode();
   }
 
   function storeSchedule() {
     localStorage.setItem("schedule", JSON.stringify(schedule));
+  }
+
+  function renderColorCode() {
+    var currentHour = moment().hour();
+    $.each($(".hour-block"), function(index, block) {
+      var hour = $(block).attr("data-hour");
+      var current = $(currentHour);
+      console.log(hour);
+      console.log(current[0]);
+      console.log($(this));
+      if (hour == current[0]) {
+        $(this)
+          .find("textarea")
+          .addClass("present");
+      }
+      if (hour < current[0]) {
+        $(this)
+          .find("textarea")
+          .attr("disabled", "disabled");
+      }
+      if (hour > current[0]) {
+        $(this)
+          .find("textarea")
+          .addClass("future");
+      }
+    });
   }
 
   $(document).on("click", ".update-btn", function(e) {
@@ -95,7 +131,7 @@ $(document).ready(function() {
       .attr("data-index");
     var target = schedule[index].event;
     // Push the content to the schedule or replace old event at selected index
-    if(target.length > 0) {
+    if (target.length > 0) {
       target.splice(0, target.length);
     }
     target.push(content);

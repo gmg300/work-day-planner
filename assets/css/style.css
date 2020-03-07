@@ -64,6 +64,14 @@ i {
   display: inline;
 }
 
+.present {
+  background-color: #da7e57;
+}
+
+.future {
+  background-color: #81e6d9;
+}
+
 /* Clock */
 .circle {
     width: 180px;
