@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  init(); 
+  
   var schedule = [
     {
       name: "9am",
@@ -47,7 +49,7 @@ $(document).ready(function() {
     }
   ];
 
-  renderDate();
+  
 
   function renderDate() {
     var currentDate = moment().format("dddd[ | ]MMMM D, h:mm:ss");
@@ -57,7 +59,7 @@ $(document).ready(function() {
     setInterval(renderDate, 4);
   }
 
-  getSchedule();
+  
 
   function getSchedule() {
     var storedSchedule = JSON.parse(localStorage.getItem("schedule"));
@@ -97,9 +99,6 @@ $(document).ready(function() {
     $.each($(".hour-block"), function(index, block) {
       var hour = $(block).attr("data-hour");
       var current = $(currentHour);
-      console.log(hour);
-      console.log(current[0]);
-      console.log($(this));
       if (hour == current[0]) {
         $(this)
           .find("textarea")
@@ -116,6 +115,11 @@ $(document).ready(function() {
           .addClass("future");
       }
     });
+  }
+
+  function init() {
+    renderDate();
+    getSchedule();
   }
 
   $(document).on("click", ".update-btn", function(e) {

@@ -65,11 +65,11 @@ i {
 }
 
 .present {
-  background-color: #da7e57;
+  background-color: rgba(255, 164, 139, 1);
 }
 
 .future {
-  background-color: #81e6d9;
+  background-color: rgba(103, 227, 255, 1);
 }
 
 /* Clock */
