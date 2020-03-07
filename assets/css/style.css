@@ -15,15 +15,19 @@
   border-radius: 0 7px 7px 0;
 }
 
-.save-bg-blue {
+.update-btn {
   background-color: rgba(49, 130, 206, 1);
-  border-radius: 0 7px 7px 0;
   color: white;
 }
 
-.save-bg-blue:hover {
+.update-btn:hover {
+  background-color: rgba(37, 81, 176, 1);
+  color: white;
+}
+
+.update-btn:active {
   background-color: rgba(49, 130, 206, .75);
-  color: rgb(129, 230, 217);
+  color: white;
 }
 
 .bg-light-gray {
@@ -45,17 +49,19 @@ table, tr, td, th, tbody, thead {
   font-size: 1.5rem;
 }
 
-td i {
+i {
   display: inline-block;
   text-align:center;
 }
 
-textarea {
-  outline: none;
+.event-text {
   resize: none;
   border: none;
-  background-color: #f7fafc;
-  width: 100%
+  background-color: transparent;
+  width: 100%;
+  min-height: 7rem;
+  font-size: 1.5rem;
+  display: inline;
 }
 
 /* Clock */
@@ -143,6 +149,9 @@ textarea {
 
   .inline-block{
     display: inline-block;
+  }
+  table, tr, td, th, tbody, thead {
+    font-size: 1rem;
   }
 }
 
