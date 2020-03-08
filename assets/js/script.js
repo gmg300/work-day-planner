@@ -110,10 +110,10 @@ $(document).ready(function() {
         }
       ];
     }
-    renderSchedule();
+    renderSchedule(schedule);
   }
 
-  function renderSchedule() {
+  function renderSchedule(schedule) {
     $("tbody").empty();
     schedule.forEach((item, i) => {
       var block = `<tr data-index="${i}" data-hour="${item.hour}" class="hour-block d-flex mb-1 shadow-sm rounded-right">
@@ -188,6 +188,6 @@ $(document).ready(function() {
     console.log(schedule)
     console.log(localStorage.schedule)
     storeSchedule();
-    renderSchedule();
+    renderSchedule(schedule);
   });
 });
