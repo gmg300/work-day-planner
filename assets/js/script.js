@@ -61,7 +61,55 @@ $(document).ready(function() {
     var storedSchedule = JSON.parse(localStorage.getItem("schedule"));
     if (storedSchedule !== null) {
       schedule = storedSchedule;
-    } 
+    } else {
+      schedule = [
+        {
+          name: "9am",
+          event: [],
+          hour: "9"
+        },
+        {
+          name: "10am",
+          event: [],
+          hour: "10"
+        },
+        {
+          name: "11am",
+          event: [],
+          hour: "11"
+        },
+        {
+          name: "12pm",
+          event: [],
+          hour: "12"
+        },
+        {
+          name: "1pm",
+          event: [],
+          hour: "13"
+        },
+        {
+          name: "2pm",
+          event: [],
+          hour: "14"
+        },
+        {
+          name: "3pm",
+          event: [],
+          hour: "15"
+        },
+        {
+          name: "4pm",
+          event: [],
+          hour: "16"
+        },
+        {
+          name: "5pm",
+          event: [],
+          hour: "17"
+        }
+      ];
+    }
     renderSchedule();
   }
 
@@ -116,6 +164,8 @@ $(document).ready(function() {
   function init() {
     renderDate();
     getSchedule();
+    console.log(schedule)
+    console.log(localStorage.schedule)
   }
 
   $(document).on("click", ".update-btn", function(e) {
@@ -135,7 +185,9 @@ $(document).ready(function() {
       target.splice(0, target.length);
     }
     target.push(content);
+    console.log(schedule)
+    console.log(localStorage.schedule)
     storeSchedule();
-    getSchedule();
+    renderSchedule();
   });
 });
