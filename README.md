@@ -8,8 +8,9 @@ This web app is a simple (work day) calendar that allows users to schedule, edit
 **Challenges**  
 One of the biggest challenges in writing this app was trying to grab the data I needed. I had to get creative, chaining together JQuery methods like *.closest()* and *.find()* in order to get to the objects and elements I wanted to manipulate.
 
-**v0.1.0**
-
+**Known Bugs**
+* After reloading page if item is highlighted and user hits update it erases everything else
+* Schedule won't render on live page
 
 **Future Versions**
 * Clear the local storage at a certain time every day so that the user can start out with an empty schedule to fill

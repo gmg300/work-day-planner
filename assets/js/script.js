@@ -61,7 +61,7 @@ $(document).ready(function() {
     var storedSchedule = JSON.parse(localStorage.getItem("schedule"));
     if (storedSchedule !== null) {
       schedule = storedSchedule;
-    }
+    } 
     renderSchedule();
   }
 
@@ -136,6 +136,6 @@ $(document).ready(function() {
     }
     target.push(content);
     storeSchedule();
-    renderSchedule();
+    getSchedule();
   });
 });
