@@ -49,8 +49,6 @@ $(document).ready(function() {
     }
   ];
 
-  
-
   function renderDate() {
     var currentDate = moment().format("dddd[ | ]MMMM D, h:mm:ss");
     var currentDay = moment().format("dddd");
@@ -58,8 +56,6 @@ $(document).ready(function() {
     $("#currentDay").text(currentDay);
     setInterval(renderDate, 4);
   }
-
-  
 
   function getSchedule() {
     var storedSchedule = JSON.parse(localStorage.getItem("schedule"));
