@@ -1,4 +1,4 @@
-# work-day-scheduler v0.1.0
+# work-day-scheduler v0.2.0
 
 <img alt="Work Day Planner v0.1.0 gif" src="assets/images/work-day-planner_0-1-0.gif">
 
@@ -6,11 +6,11 @@
 This web app is a simple (work day) calendar that allows users to schedule, edit and delete events while saving them in local storage. The time is tracked along the calendar showing present and future blocks of time by color and disabling past blocks from new inputs. The app sets the day/time using moment.js and displays current weekday, date and time in the heading.
 
 **Challenges**  
-One of the biggest challenges in writing this app was trying to grab the data I needed. I had to get creative, chaining together JQuery methods like *.closest()* and *.find()* in order to get to the objects and elements I wanted to manipulate.
+One of the biggest challenges in writing this app was trying to grab the data I needed. I had to get creative, chaining together JQuery methods like *.closest()* and *.find()* in order to get to the objects and elements I wanted to manipulate. Another major issue was getting, storing and rendering the events data model and getting it persist after reloads.
 
-**Known Bugs**
-* After reloading page if item is highlighted and user hits update it erases everything else
-* Schedule won't render on live page
+**v.0.2.0**
+* IMPROVEMENT - Events are now stable and won't be deleted after reloading page and hitting update button
+* IMPROVEMENT - Schedule now properly renders on live page
 
 **Future Versions**
 * Clear the local storage at a certain time every day so that the user can start out with an empty schedule to fill
