@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  init(); 
-  
   var schedule = [
     {
       name: "9am",
@@ -49,6 +47,16 @@ $(document).ready(function() {
     }
   ];
 
+  init();
+
+  $(document).on("click", ".update-btn", function(e) {
+    e.preventDefault();
+    var element = $(this);
+    addEvent(element);
+    storeSchedule();
+    renderSchedule();
+  });
+
   function renderDate() {
     var currentDate = moment().format("dddd[ | ]MMMM D, h:mm:ss");
     var currentDay = moment().format("dddd");
@@ -57,11 +65,25 @@ $(document).ready(function() {
     setInterval(renderDate, 4);
   }
 
+  function addEvent(element) {
+    // Find the new event text
+    var content = element
+      .closest(".input-group")
+      .find(".event-text")
+      .val();
+    // Find the spot in the schedule where it needs to go
+    var index = element.closest(".hour-block").attr("data-index");
+    var target = schedule[index].event;
+    // Push the content to the schedule or replace old event at selected index
+    if (target.length > 0) {
+      target.splice(0, target.length);
+    }
+    target.push(content);
+  }
+
   function getSchedule() {
     var storedSchedule = JSON.parse(localStorage.getItem("schedule"));
-    if (storedSchedule !== null) {
-      schedule = storedSchedule;
-    } else {
+    if (storedSchedule == null) {
       schedule = [
         {
           name: "9am",
@@ -109,12 +131,18 @@ $(document).ready(function() {
           hour: "17"
         }
       ];
+    } else {
+      schedule = storedSchedule;
     }
-    renderSchedule(schedule);
+    renderSchedule();
   }
 
-  function renderSchedule(schedule) {
-    $("tbody").empty();
+  function storeSchedule() {
+    localStorage.setItem("schedule", JSON.stringify(schedule));
+  }
+
+  function renderSchedule() {
+    $("#blocks-view").empty();
     schedule.forEach((item, i) => {
       var block = `<tr data-index="${i}" data-hour="${item.hour}" class="hour-block d-flex mb-1 shadow-sm rounded-right">
             <th scope="row" class="col-2 --border-left">${item.name}</th>
@@ -129,13 +157,9 @@ $(document).ready(function() {
               </div>
             </td>
           </tr>`;
-      $("tbody").append(block);
+      $("#blocks-view").append(block);
     });
     renderColorCode();
-  }
-
-  function storeSchedule() {
-    localStorage.setItem("schedule", JSON.stringify(schedule));
   }
 
   function renderColorCode() {
@@ -164,30 +188,5 @@ $(document).ready(function() {
   function init() {
     renderDate();
     getSchedule();
-    console.log(schedule)
-    console.log(localStorage.schedule)
   }
-
-  $(document).on("click", ".update-btn", function(e) {
-    e.preventDefault();
-    // Find the new event text
-    var content = $(this)
-      .closest(".input-group")
-      .find(".event-text")
-      .val();
-    // Find the spot in the schedule where it needs to go
-    var index = $(this)
-      .closest(".hour-block")
-      .attr("data-index");
-    var target = schedule[index].event;
-    // Push the content to the schedule or replace old event at selected index
-    if (target.length > 0) {
-      target.splice(0, target.length);
-    }
-    target.push(content);
-    console.log(schedule)
-    console.log(localStorage.schedule)
-    storeSchedule();
-    renderSchedule(schedule);
-  });
 });
